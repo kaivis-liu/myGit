@@ -1,0 +1,17 @@
+import Database.HDBC.Sqlite3 (connectSqlite3)
+import Database.HDBC
+
+
+query :: Int -> IO ()
+query maxId =
+    do 
+        conn <- connectSqlite3 "customer.db"
+        run conn "CREATE TABLE test (id INTEGER NOT NULL, desc VARCHAR(80), desc VARCHAR(80))" []
+        run conn "INSERT INTO test  VALUES (0,'kaivis','123')" []
+        run conn "INSERT INTO test  VALUES (1,'chu','123567')" []
+        run conn "INSERT INTO test  VALUES (2,'merry','1234')" []
+        
+        commit conn
+
+
+      
